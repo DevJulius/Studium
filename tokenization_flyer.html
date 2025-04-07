@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Tokenization Explained</title>
+    <link rel="stylesheet" href="tokenization_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="flyer-container">
+
+        <!-- Top Section -->
+        <div class="flyer-section top-section">
+            <h1>Wie funktioniert Tokenisierung?</h1>
+            <h2>Verständnis für Tokenisierung in bezug auf LLMs</h2>
+        </div>
+
+        <!-- Middle Section (What/Why) -->
+        <div class="flyer-section middle-section">
+            <div class="info-block">
+                <!-- !!! IMPORTANT: Replace 'icon-magnifying-glass.png' with your actual image file !!! -->
+                <img src="icon-lupe.svg" alt="Breakdown Icon" class="icon">
+                <h3>Was ist es?</h3>
+                <p>Aufteilung von Text in kleinere Teile, genannt <strong>Tokens</strong>.</p>
+            </div>
+            <div class="info-block">
+                <!-- !!! IMPORTANT: Replace 'icon-chip.png' with your actual image file !!! -->
+                 <img src="icon-chip.svg" alt="Processing Icon" class="icon">
+                <h3>Warum?</h3>
+                <p>Computer brauchen <strong>Nummern</strong>, keine Wörter, um Sprachen zu verabeiten.</p>
+            </div>
+        </div>
+
+        <!-- Central Visual -->
+        <div class="flyer-section central-visual">
+            <h3>So funktioniert es:</h3>
+            <p class="flow-description">Text → Tokens → Nummern IDs</p>
+
+            <code class="code-block input-text">"Hallo Chatbot!"</code>
+
+            <div class="arrow">↓</div>
+
+            <div class="token-display">
+                <span class="token-box">Hallo</span>
+                <span class="token-box">Chat</span>
+                <span class="token-box">Bot</span>
+                <span class="token-box">!</span>
+            </div>
+
+            <div class="arrow">↓</div>
+            <p class="note">(Verwendung eines Vokabulars/Wörterbuchs)</p>
+
+            <code class="code-block output-ids">[ 87 ] [ 123 ] [ 456 ] [ 9 ]</code>
+            <p class="note">(Example IDs - Die tatsächlichen Zahlen variieren je nach Modell)</p>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="flyer-section bottom-section">
+            <h3>Warum ist es wichtig?</h3>
+            <p class="takeaway">Tokenisierung ist der <strong>erste entscheidender Schritt</strong> für LLMs, um Kontext zu verstehen, Muster zu lernen und Text zu erzeugen.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
