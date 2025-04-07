@@ -1,39 +1,66 @@
 /* Basic Reset & Body Style */
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #ffffff; /* White background for printing */
+    /* Changed background for better screen preview of page */
+    background-color: #f0f0f0;
     margin: 0;
     padding: 0;
-    color: #333; /* Default text color */
-    line-height: 1.5; /* Default line height */
-    /* Force background colors/images printing */
+    color: #333;
+    line-height: 1.5;
     -webkit-print-color-adjust: exact !important;
     color-adjust: exact !important;
 }
 
-/* Container for the flyer */
+/* Wrapper für die gesamte Seite - Primarily for screen centering */
+.page-wrapper {
+    /* Using a width closer to A4 for screen preview */
+    max-width: 794px;
+    margin: 20px auto;
+    /* Removed padding, border, shadow - will be handled in print */
+    box-sizing: border-box;
+}
+
+/* Container für den Flyer - Screen styles */
 .flyer-container {
     background-color: #ffffff;
-    max-width: 700px;
-    margin: 20px auto; /* Center on screen */
-    padding: 30px;
+    padding: 30px; /* Innenabstand für Bildschirmansicht */
     box-sizing: border-box;
-    border: 1px solid #eee; /* Subtle border for screen */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Subtle shadow for screen */
+    border: 1px solid #eee;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px; /* Abstand zum nächsten Block im Screen */
 }
+
+/* Kontakt-Header */
+.contact-header {
+    margin-bottom: 15px;
+    padding: 0;
+    border-bottom: none;
+}
+.contact-header p {
+    text-align: right;
+    margin: 0px 0;
+    font-size: 9pt;
+    color: #666;
+    line-height: 1.3;
+}
+.contact-header .contact-name { /* Assuming you might add this class */
+    font-weight: 700;
+    font-size: 10pt;
+    color: #444;
+}
+
 
 /* General Section Styling */
 .flyer-section {
     margin-bottom: 25px;
     overflow: hidden;
+    /* Removed text-align: center; here, apply where needed */
 }
 .flyer-section:last-child {
     margin-bottom: 0;
 }
 
 /* --- Flyer Specific Section Styling --- */
-
-/* Top Section */
 .top-section {
     background-color: #E0F7FA !important;
     padding: 20px;
@@ -52,8 +79,6 @@ body {
     margin: 0;
     font-weight: 400;
 }
-
-/* Middle Section (What/Why) */
 .middle-section {
     display: flex;
     justify-content: space-around;
@@ -64,6 +89,7 @@ body {
 .info-block {
     flex: 1;
     min-width: 0;
+    text-align: center; /* Center text within info block */
 }
 .info-block .icon {
     width: 50px;
@@ -88,8 +114,6 @@ body {
     color: #004D40;
     font-weight: 700;
 }
-
-/* Central Visual */
 .central-visual {
     border: 2px solid #00796B;
     padding: 20px;
@@ -105,25 +129,28 @@ body {
     font-size: 11pt;
     margin-bottom: 15px;
     color: #555;
+    text-align: center; /* Ensure this is centered */
 }
 .code-block {
     display: block;
     background-color: #f0f0f0 !important;
     padding: 10px 15px;
     border-radius: 4px;
-    font-size: 12pt;
+    font-size: 11pt;
     font-family: 'Courier New', Courier, monospace;
     margin: 10px auto;
-    max-width: 90%;
+    max-width: 90%; /* Limit width slightly for better centering appearance */
     word-wrap: break-word;
     border: 1px solid #ddd;
-    text-align: left; /* Ensure code alignment */
+    text-align: center; /* Text centered inside */
+    box-sizing: border-box;
 }
 .arrow {
     font-size: 20pt;
     color: #00796B;
     line-height: 1;
     margin: 5px 0;
+    text-align: center; /* Ensure arrow is centered */
 }
 .token-display {
     display: flex;
@@ -145,12 +172,11 @@ body {
     font-size: 9pt;
     color: #555;
     margin: 5px 0;
+    text-align: center; /* Ensure notes are centered */
 }
-.output-ids {
+.output-ids { /* If you use this class specifically */
     color: #333;
 }
-
-/* Bottom Section */
 .bottom-section {
     background-color: #E0F7FA !important;
     padding: 15px 20px;
@@ -174,25 +200,24 @@ body {
 
 /* --- Styling for the In-Depth Information Section --- */
 .in-depth-info {
-    max-width: 700px; /* Match flyer width */
-    margin: 40px auto 20px auto; /* Space above/below, center */
-    padding: 25px;
-    background-color: #f9f9f9 !important; /* Ensure background prints */
+    /* Screen styles */
+    padding: 30px; /* Consistent padding with flyer for screen */
+    background-color: #f9f9f9 !important;
     border-radius: 8px;
-    border: 1px solid #e0e0e0; /* Subtle border for screen */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow for screen */
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     line-height: 1.6;
+    /* Removed margin-bottom, handled by page-wrapper */
 }
-
 .in-depth-info h2 {
     font-size: 18pt;
     color: #004D40;
     border-bottom: 2px solid #00796B;
     padding-bottom: 10px;
+    margin-top: 0; /* Remove default top margin */
     margin-bottom: 20px;
     font-weight: 700;
 }
-
 .in-depth-info h3 {
     font-size: 14pt;
     color: #00796B;
@@ -200,37 +225,34 @@ body {
     margin-bottom: 10px;
     font-weight: 700;
 }
-
 .in-depth-info p {
     font-size: 11pt;
     margin-bottom: 15px;
 }
-
 .in-depth-info ul {
-    margin-left: 20px;
+    /* Adjusted list styling */
+    margin-left: 0;
     margin-bottom: 15px;
-    padding-left: 20px;
+    padding-left: 30px; /* Indentation for bullets */
+    list-style-position: outside;
 }
-
 .in-depth-info li {
     font-size: 11pt;
     margin-bottom: 8px;
 }
-
 .in-depth-info ul ul {
     margin-top: 8px;
     margin-bottom: 8px;
+    padding-left: 25px; /* Further indent sub-lists */
 }
-
 .in-depth-info code {
-    background-color: #e0e0e0 !important; /* Ensure background prints */
+    background-color: #e0e0e0 !important;
     padding: 2px 6px;
     border-radius: 4px;
     font-family: 'Courier New', Courier, monospace;
     font-size: 10pt;
     color: #222;
 }
-
 .in-depth-info strong {
     font-weight: 700;
 }
@@ -239,37 +261,65 @@ body {
 /* --- Print-Specific Styles --- */
 @media print {
     body {
-        background-color: #ffffff; /* Ensure white background */
+        background-color: #ffffff !important; /* Ensure white background */
         margin: 0;
         padding: 0;
-        font-size: 10pt; /* Base font size for print */
-        line-height: 1.4; /* Base line height for print */
+        font-size: 10pt;
+        line-height: 1.4;
     }
 
+    .page-wrapper {
+        max-width: none; /* Remove screen constraints */
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border: none;
+    }
+
+    /* Common print styles for both containers */
     .flyer-container,
     .in-depth-info {
-        box-shadow: none; /* Remove shadow */
-        border: none; /* Remove border */
-        margin: 0; /* Remove screen margins */
-        max-width: 100%; /* Use full page width */
-        padding: 1.5cm; /* Add print margins */
-        background-color: #ffffff !important; /* Ensure white background for containers */
+        box-shadow: none;
+        border: none;
+        margin: 0;
+        width: 100%; /* Use full available width */
+        max-width: 100%;
+        box-sizing: border-box; /* Include padding in width */
+        page-break-inside: avoid; /* Try to keep content together */
+        /* Padding is now defined separately below */
+        background-color: #ffffff !important; /* Ensure white background for flyer part */
+    }
+
+    /* === Specific Padding for Print === */
+    .flyer-container {
+        /* Reduced top padding, standard other sides */
+        padding: 0.8cm 1.5cm 1.5cm 1.5cm; /* Adjust 0.8cm as needed */
     }
 
     .in-depth-info {
-        padding-top: 1cm; /* Adjust top padding if needed after page break */
-        background-color: #f9f9f9 !important; /* Keep its distinct background */
-        page-break-before: always; /* Start this section on a new page */
+        /* Standard padding for the second page */
+        padding: 1.5cm;
+        page-break-before: always; /* Force new page */
+        background-color: #f9f9f9 !important; /* Keep its specific background */
+    }
+    /* ================================= */
+
+
+    /* Kontakt-Header im Druck */
+    .contact-header {
+        /* Adjust margin if needed for print layout */
+        margin-bottom: 1cm;
     }
 
-    /* Ensure background colors print for specific elements */
-    .top-section, .bottom-section, .code-block, .token-box, .in-depth-info code {
+
+    /* Ensure background colors print */
+    .top-section, .bottom-section, .code-block, .token-box, .in-depth-info, .in-depth-info code {
         -webkit-print-color-adjust: exact;
         color-adjust: exact;
     }
 
-    /* Try to prevent elements from breaking across pages */
-    .flyer-section, .info-block, .central-visual, .token-display, .in-depth-info h2, .in-depth-info h3, .in-depth-info p, .in-depth-info li {
+    /* Try to prevent elements from breaking */
+    .contact-header p, .flyer-section, .info-block, .central-visual, .token-display, .in-depth-info h2, .in-depth-info h3, .in-depth-info p, .in-depth-info li {
         page-break-inside: avoid;
     }
 
@@ -280,6 +330,13 @@ body {
 
     /* Ensure images are reasonably sized */
     .info-block .icon {
-        max-width: 50px; /* Keep icon size controlled */
+        max-width: 50px;
+    }
+
+    /* Ensure code blocks take full width if needed but respect padding */
+    .code-block {
+       max-width: 100%; /* Allow full width within padding */
+       margin-left: 0;
+       margin-right: 0;
     }
 }
