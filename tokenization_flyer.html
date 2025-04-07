@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de"> <!-- Sprache auf Deutsch gesetzt -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LLM Tokenization Explained</title>
-    <link rel="stylesheet" href="tokenization_style.css">
+    <title>LLM Tokenisierung Erklärt</title> <!-- Titel angepasst -->
+    <link rel="stylesheet" href="tokenization_style.css"> <!-- CSS-Dateiname geändert -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
@@ -16,22 +16,22 @@
         <!-- Top Section -->
         <div class="flyer-section top-section">
             <h1>Wie funktioniert Tokenisierung?</h1>
-            <h2>Verständnis für Tokenisierung in bezug auf LLMs</h2>
+            <h2>Verständnis für Tokenisierung in Bezug auf LLMs</h2> <!-- Kleine Textkorrektur -->
         </div>
 
         <!-- Middle Section (What/Why) -->
         <div class="flyer-section middle-section">
             <div class="info-block">
-                <!-- !!! IMPORTANT: Replace 'icon-magnifying-glass.png' with your actual image file !!! -->
-                <img src="icon-lupe.svg" alt="Breakdown Icon" class="icon">
+                <!-- !!! WICHTIG: Ersetze 'icon-lupe.svg' mit deiner Bilddatei !!! -->
+                <img src="icon-lupe.svg" alt="Aufteilen Icon" class="icon"> <!-- Alt-Text angepasst -->
                 <h3>Was ist es?</h3>
                 <p>Aufteilung von Text in kleinere Teile, genannt <strong>Tokens</strong>.</p>
             </div>
             <div class="info-block">
-                <!-- !!! IMPORTANT: Replace 'icon-chip.png' with your actual image file !!! -->
-                 <img src="icon-chip.svg" alt="Processing Icon" class="icon">
+                <!-- !!! WICHTIG: Ersetze 'icon-chip.svg' mit deiner Bilddatei !!! -->
+                 <img src="icon-chip.svg" alt="Verarbeiten Icon" class="icon"> <!-- Alt-Text angepasst -->
                 <h3>Warum?</h3>
-                <p>Computer brauchen <strong>Nummern</strong>, keine Wörter, um Sprachen zu verabeiten.</p>
+                <p>Computer brauchen <strong>Nummern</strong>, keine Wörter, um Sprachen zu verarbeiten.</p> <!-- Kleine Textkorrektur -->
             </div>
         </div>
 
@@ -47,23 +47,72 @@
             <div class="token-display">
                 <span class="token-box">Hallo</span>
                 <span class="token-box">Chat</span>
-                <span class="token-box">Bot</span>
+                <span class="token-box">bot</span> <!-- Subword-Beispiel angepasst -->
                 <span class="token-box">!</span>
             </div>
 
             <div class="arrow">↓</div>
             <p class="note">(Verwendung eines Vokabulars/Wörterbuchs)</p>
 
-            <code class="code-block output-ids">[ 87 ] [ 123 ] [ 456 ] [ 9 ]</code>
-            <p class="note">(Example IDs - Die tatsächlichen Zahlen variieren je nach Modell)</p>
+            <code class="code-block output-ids">[ 87 ] [ 1234 ] [ 567 ] [ 9 ]</code> <!-- Beispiel-IDs leicht geändert -->
+            <p class="note">(Beispiel-IDs - Die tatsächlichen Zahlen variieren je nach Modell)</p> <!-- Text angepasst -->
         </div>
 
         <!-- Bottom Section -->
         <div class="flyer-section bottom-section">
             <h3>Warum ist es wichtig?</h3>
-            <p class="takeaway">Tokenisierung ist der <strong>erste entscheidender Schritt</strong> für LLMs, um Kontext zu verstehen, Muster zu lernen und Text zu erzeugen.</p>
+            <p class="takeaway">Tokenisierung ist der <strong>erste entscheidende Schritt</strong> für LLMs, um Kontext zu verstehen, Muster zu lernen und Text zu erzeugen.</p>
         </div>
 
+    </div>
+
+    <!-- In-Depth Section remains the same -->
+    <div class="in-depth-info">
+        <h2>Vertiefende Informationen zur Tokenisierung</h2>
+
+        <h3>Arten der Tokenisierung</h3>
+        <p>Es gibt verschiedene Strategien, wie Text in Tokens zerlegt werden kann:</p>
+        <ul>
+            <li><strong>Wort-basierte Tokenisierung:</strong> Zerlegt Text anhand von Leerzeichen und Satzzeichen. Einfach, aber problematisch bei sehr großen Vokabularen (jedes Wort eine ID) und unbekannten Wörtern (Out-of-Vocabulary, OOV). Beispiel: <code>"Hallo", "Chatbot", "!"</code></li>
+            <li><strong>Zeichen-basierte Tokenisierung:</strong> Zerlegt Text in einzelne Zeichen. Löst das OOV-Problem (Vokabular ist klein: a-z, A-Z, 0-9, Satzzeichen etc.), aber führt zu sehr langen Token-Sequenzen, was die Erfassung von Wortbedeutungen erschwert. Beispiel: <code>"H", "a", "l", "l", "o", " ", "C", "h", "a", "t", "b", "o", "t", "!"</code></li>
+            <li><strong>Subword-Tokenisierung (am häufigsten):</strong> Ein Kompromiss. Häufige Wörter bleiben ganze Tokens, seltene Wörter werden in kleinere, sinnvolle Einheiten (Subwords) zerlegt. Dies hält das Vokabular überschaubar, behandelt unbekannte Wörter gut und bewahrt semantische Informationen. Gängige Algorithmen sind:
+                <ul>
+                    <li><code>Byte Pair Encoding (BPE)</code></li>
+                    <li><code>WordPiece</code> (verwendet von BERT)</li>
+                    <li><code>SentencePiece</code> (verwendet von vielen modernen Modellen)</li>
+                </ul>
+                Beispiel (könnte sein): <code>"Hallo"</code>, <code>" Chat"</code>, <code>"bot"</code>, <code>"!"</code> (Beachte das Leerzeichen-Präfix bei " Chat", eine gängige Technik).
+            </li>
+        </ul>
+
+        <h3>Das Vokabular (Wörterbuch)</h3>
+        <p>Der Tokenizer verwendet ein festes Vokabular, das während des Trainings des LLMs erstellt wird. Dieses Vokabular ist eine Liste aller einzigartigen Tokens (Wörter, Subwords, Zeichen), die das Modell kennt. Jedes Token im Vokabular erhält eine eindeutige numerische ID.</p>
+        <p>Was passiert mit Wörtern, die nicht im Vokabular stehen (OOV - Out-of-Vocabulary)?</p>
+        <ul>
+            <li>Bei Wort-Tokenizern wird oft ein spezielles <code>[UNK]</code> (Unknown) Token verwendet.</li>
+            <li>Bei Subword-Tokenizern können unbekannte Wörter meist aus bekannten Subwords zusammengesetzt werden, was das OOV-Problem stark reduziert.</li>
+        </ul>
+
+        <h3>Token IDs</h3>
+        <p>Die resultierenden Nummern (IDs) sind einfach Indizes (Positionen) im Vokabular des Modells. Das Modell verwendet diese IDs, um die entsprechenden Vektor-Repräsentationen (Embeddings) für jedes Token nachzuschlagen. Die spezifischen IDs sind für jedes trainierte Modell einzigartig.</p>
+
+        <h3>Auswirkungen der Tokenisierung</h3>
+        <p>Die Wahl des Tokenizers und des Vokabulars hat erhebliche Auswirkungen:</p>
+        <ul>
+            <li><strong>Modellverständnis:</strong> Eine gute Tokenisierung hilft dem Modell, morphologische Varianten (z.B. "laufen", "läufst", "gelaufen") und seltene Wörter besser zu verstehen.</li>
+            <li><strong>Effizienz & Kosten:</strong> Die Anzahl der Tokens beeinflusst die Rechenleistung und bei API-Nutzung oft die Kosten. Ein Text kann je nach Tokenizer unterschiedlich viele Tokens ergeben.</li>
+            <li><strong>Mehrsprachigkeit:</strong> Subword-Methoden sind oft besser geeignet für Sprachen mit komplexer Morphologie (wie Deutsch, Finnisch, Türkisch).</li>
+        </ul>
+
+        <h3>Spezielle Tokens</h3>
+        <p>Viele Modelle verwenden spezielle Tokens für Steuerungszwecke:</p>
+        <ul>
+            <li><code>[CLS]</code> (Classification): Oft am Anfang einer Sequenz für Klassifizierungsaufgaben.</li>
+            <li><code>[SEP]</code> (Separator): Trennt verschiedene Textsegmente (z.B. Frage und Kontext).</li>
+            <li><code>[PAD]</code> (Padding): Füllt kürzere Sequenzen auf eine feste Länge auf (wichtig für Batch-Verarbeitung).</li>
+            <li><code>[UNK]</code> (Unknown): Repräsentiert Wörter, die nicht im Vokabular sind (hauptsächlich bei älteren oder Wort-basierten Tokenizern).</li>
+            <li><code>[MASK]</code>: Wird in einigen Trainingsmethoden (wie BERT) verwendet, um Tokens zu maskieren, die das Modell vorhersagen soll.</li>
+        </ul>
     </div>
 
 </body>

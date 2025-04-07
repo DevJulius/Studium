@@ -3,49 +3,52 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: #ffffff; /* White background for printing */
     margin: 0;
-    padding: 0; /* Remove padding for direct PDF rendering */
-    -webkit-print-color-adjust: exact !important; /* Force background colors in Chrome/Safari */
-    color-adjust: exact !important; /* Standard */
+    padding: 0;
+    color: #333; /* Default text color */
+    line-height: 1.5; /* Default line height */
+    /* Force background colors/images printing */
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
 }
 
-/* Container for the flyer - Adjust width/padding for A4/Letter size */
+/* Container for the flyer */
 .flyer-container {
     background-color: #ffffff;
-    /* Use max-width for screen, but allow it to fill page for PDF */
-    max-width: 700px; /* Adjust as needed */
-    margin: 20px auto; /* Center on screen, less relevant for PDF */
-    padding: 30px; /* Padding inside the flyer */
+    max-width: 700px;
+    margin: 20px auto; /* Center on screen */
+    padding: 30px;
     box-sizing: border-box;
-    border: 1px solid #eee; /* Optional: slight border for visual separation */
+    border: 1px solid #eee; /* Subtle border for screen */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Subtle shadow for screen */
 }
 
 /* General Section Styling */
 .flyer-section {
     margin-bottom: 25px;
-    overflow: hidden; /* Prevent content bleed */
+    overflow: hidden;
 }
 .flyer-section:last-child {
     margin-bottom: 0;
 }
 
-/* --- Specific Section Styling --- */
+/* --- Flyer Specific Section Styling --- */
 
 /* Top Section */
 .top-section {
-    background-color: #E0F7FA !important; /* Light Cyan */
+    background-color: #E0F7FA !important;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
 }
 .top-section h1 {
-    font-size: 24pt; /* Use points for better print consistency */
-    color: #00796B; /* Teal */
+    font-size: 24pt;
+    color: #00796B;
     margin: 0 0 5px 0;
     font-weight: 700;
 }
 .top-section h2 {
     font-size: 16pt;
-    color: #004D40; /* Darker Teal */
+    color: #004D40;
     margin: 0;
     font-weight: 400;
 }
@@ -56,47 +59,45 @@ body {
     justify-content: space-around;
     text-align: center;
     gap: 20px;
-    padding-top: 10px; /* Add some space */
+    padding-top: 10px;
 }
 .info-block {
     flex: 1;
     min-width: 0;
 }
 .info-block .icon {
-    width: 50px; /* Slightly larger for print */
+    width: 50px;
     height: 50px;
     margin-bottom: 10px;
-    display: block; /* Center using margin auto */
+    display: block;
     margin-left: auto;
     margin-right: auto;
     object-fit: contain;
 }
 .info-block h3 {
-    color: #00796B; /* Teal */
+    color: #00796B;
     margin: 0 0 8px 0;
     font-size: 14pt;
 }
 .info-block p {
     font-size: 11pt;
-    color: #333;
     margin: 0;
     line-height: 1.4;
 }
 .info-block strong {
-    color: #004D40; /* Darker Teal */
+    color: #004D40;
     font-weight: 700;
 }
 
-
 /* Central Visual */
 .central-visual {
-    border: 2px solid #00796B; /* Teal border */
+    border: 2px solid #00796B;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
 }
 .central-visual h3 {
-    color: #00796B; /* Teal */
+    color: #00796B;
     margin: 0 0 10px 0;
     font-size: 14pt;
 }
@@ -107,19 +108,20 @@ body {
 }
 .code-block {
     display: block;
-    background-color: #f0f0f0 !important; /* Light grey code background */
+    background-color: #f0f0f0 !important;
     padding: 10px 15px;
     border-radius: 4px;
-    font-size: 12pt; /* Good size for print */
-    font-family: 'Courier New', Courier, monospace; /* Monospace font */
+    font-size: 12pt;
+    font-family: 'Courier New', Courier, monospace;
     margin: 10px auto;
     max-width: 90%;
     word-wrap: break-word;
-    border: 1px solid #ddd; /* Add slight border to code blocks */
+    border: 1px solid #ddd;
+    text-align: left; /* Ensure code alignment */
 }
 .arrow {
     font-size: 20pt;
-    color: #00796B; /* Teal */
+    color: #00796B;
     line-height: 1;
     margin: 5px 0;
 }
@@ -131,39 +133,38 @@ body {
     margin: 10px 0;
 }
 .token-box {
-    border: 1px solid #ccc; /* Light grey border */
+    border: 1px solid #ccc;
     padding: 5px 10px;
     border-radius: 4px;
-    background-color: #fff !important; /* White background */
+    background-color: #fff !important;
     font-size: 11pt;
     white-space: nowrap;
     color: #333;
 }
 .note {
-    font-size: 9pt; /* Smaller note text */
-    color: #555; /* Grey */
+    font-size: 9pt;
+    color: #555;
     margin: 5px 0;
 }
 .output-ids {
     color: #333;
 }
 
-
 /* Bottom Section */
 .bottom-section {
-    background-color: #E0F7FA !important; /* Light Cyan */
+    background-color: #E0F7FA !important;
     padding: 15px 20px;
     border-radius: 8px;
     text-align: center;
 }
 .bottom-section h3 {
-    color: #00796B; /* Teal */
+    color: #00796B;
     margin: 0 0 8px 0;
     font-size: 14pt;
 }
 .takeaway {
     font-size: 12pt;
-    color: #004D40; /* Darker Teal */
+    color: #004D40;
     margin: 0;
     line-height: 1.5;
 }
@@ -171,23 +172,114 @@ body {
     font-weight: 700;
 }
 
-/* Print-Specific Styles (Optional: Usually handled by browser defaults) */
+/* --- Styling for the In-Depth Information Section --- */
+.in-depth-info {
+    max-width: 700px; /* Match flyer width */
+    margin: 40px auto 20px auto; /* Space above/below, center */
+    padding: 25px;
+    background-color: #f9f9f9 !important; /* Ensure background prints */
+    border-radius: 8px;
+    border: 1px solid #e0e0e0; /* Subtle border for screen */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow for screen */
+    line-height: 1.6;
+}
+
+.in-depth-info h2 {
+    font-size: 18pt;
+    color: #004D40;
+    border-bottom: 2px solid #00796B;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.in-depth-info h3 {
+    font-size: 14pt;
+    color: #00796B;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.in-depth-info p {
+    font-size: 11pt;
+    margin-bottom: 15px;
+}
+
+.in-depth-info ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+.in-depth-info li {
+    font-size: 11pt;
+    margin-bottom: 8px;
+}
+
+.in-depth-info ul ul {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.in-depth-info code {
+    background-color: #e0e0e0 !important; /* Ensure background prints */
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10pt;
+    color: #222;
+}
+
+.in-depth-info strong {
+    font-weight: 700;
+}
+
+
+/* --- Print-Specific Styles --- */
 @media print {
     body {
-        background-color: #ffffff; /* Ensure white background for print */
+        background-color: #ffffff; /* Ensure white background */
         margin: 0;
         padding: 0;
+        font-size: 10pt; /* Base font size for print */
+        line-height: 1.4; /* Base line height for print */
     }
-    .flyer-container {
-        box-shadow: none; /* Remove shadow for print */
-        border: none; /* Remove border for print */
-        margin: 0; /* Remove margin for print */
+
+    .flyer-container,
+    .in-depth-info {
+        box-shadow: none; /* Remove shadow */
+        border: none; /* Remove border */
+        margin: 0; /* Remove screen margins */
         max-width: 100%; /* Use full page width */
-        padding: 1cm; /* Add print margins */
+        padding: 1.5cm; /* Add print margins */
+        background-color: #ffffff !important; /* Ensure white background for containers */
     }
-    /* Ensure background colors print */
-    .top-section, .bottom-section, .code-block, .token-box {
+
+    .in-depth-info {
+        padding-top: 1cm; /* Adjust top padding if needed after page break */
+        background-color: #f9f9f9 !important; /* Keep its distinct background */
+        page-break-before: always; /* Start this section on a new page */
+    }
+
+    /* Ensure background colors print for specific elements */
+    .top-section, .bottom-section, .code-block, .token-box, .in-depth-info code {
         -webkit-print-color-adjust: exact;
         color-adjust: exact;
+    }
+
+    /* Try to prevent elements from breaking across pages */
+    .flyer-section, .info-block, .central-visual, .token-display, .in-depth-info h2, .in-depth-info h3, .in-depth-info p, .in-depth-info li {
+        page-break-inside: avoid;
+    }
+
+    /* Avoid breaking right after a heading */
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+
+    /* Ensure images are reasonably sized */
+    .info-block .icon {
+        max-width: 50px; /* Keep icon size controlled */
     }
 }
