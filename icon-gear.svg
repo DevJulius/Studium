@@ -1,0 +1,38 @@
+<svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .gear-body {
+      fill: none; /* Keine Füllung für den Hauptkörper */
+      stroke: #00796B; /* Linienfarbe */
+      stroke-width: 3;
+      stroke-linejoin: round;
+    }
+     .gear-center {
+      fill: #00796B; /* Füllung für das Mittelloch (optional) */
+      stroke: none;
+    }
+  </style>
+
+  <!-- Hauptkörper des Zahnrads mit Zähnen -->
+  <path class="gear-body"
+        d="M 50,20
+           L 55,15 L 65,15 L 70,20
+           L 75,25 L 80,30 L 80,40
+           L 85,45 L 85,55
+           L 80,60 L 80,70
+           L 75,75 L 70,80
+           L 65,85 L 55,85
+           L 50,80 L 45,85
+           L 35,85 L 30,80
+           L 25,75 L 20,70
+           L 20,60 L 15,55
+           L 15,45 L 20,40
+           L 20,30 L 25,25
+           L 30,20 L 35,15
+           L 45,15 L 50,20 Z" />
+
+  <!-- Mittlerer Kreis (Loch) -->
+  <circle class="gear-body" cx="50" cy="50" r="15"/>
+  <!-- Optional: Füllung für das Mittelloch, wenn gewünscht -->
+  <!-- <circle class="gear-center" cx="50" cy="50" r="14"/> -->
+
+</svg>

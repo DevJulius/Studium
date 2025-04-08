@@ -1,0 +1,39 @@
+<svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .brain-path {
+      /* Optional: Helle Füllung */
+      /* fill: #f0f0f0; */
+      fill: none;
+      stroke: #00796B; /* Linienfarbe */
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .brain-center-line {
+       fill: none;
+       stroke: #00796B;
+       stroke-width: 2.5; /* Etwas dünner */
+       stroke-linecap: round;
+       stroke-linejoin: round;
+    }
+  </style>
+
+  <!-- Äußerer Umriss (vereinfacht, bohnenförmiger) -->
+  <path class="brain-path"
+        d="M 50,15
+           C 25,15 15,35 20,55
+           C 15,75 30,85 50,85
+           C 70,85 85,75 80,55
+           C 85,35 75,15 50,15 Z" />
+
+  <!-- Mittellinie (leicht gekrümmt) -->
+  <path class="brain-center-line"
+        d="M 50,15 Q 48,50 50,85" />
+
+  <!-- Nur eine sehr einfache Andeutung von Windungen pro Seite -->
+   <path class="brain-center-line"
+        d="M 35,40 Q 45,60 38,70" />
+   <path class="brain-center-line"
+        d="M 65,40 Q 55,60 62,70" />
+
+</svg>

@@ -4,31 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LLM Tokenisierung Erklärt</title>
-    <link rel="stylesheet" href="tokenization_style.css"> 
+    <link rel="stylesheet" href="tokenization_style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    
+
     <div class="page-wrapper">
 
-  
+
         <div class="flyer-container">
 
-            
+
             <div class="contact-header">
-                <p class="contact-number">-- <br> --</p> 
+                <p class="contact-number">Julius Kohm 329725 <br> Felix Mast 330293</p>
             </div>
 
-           
+
             <div class="flyer-section top-section">
                 <h1>Wie funktioniert Tokenisierung?</h1>
                 <h2>Verständnis für Tokenisierung in Bezug auf LLMs</h2>
             </div>
 
-            
+
             <div class="flyer-section middle-section">
                 <div class="info-block">
                     <img src="icon-lupe.svg" alt="Aufteilen Icon" class="icon">
@@ -42,7 +42,7 @@
                 </div>
             </div>
 
-           
+
             <div class="flyer-section central-visual">
                 <h3>So funktioniert es:</h3>
                 <p class="flow-description">Text → Tokens → Nummern IDs</p>
@@ -55,49 +55,72 @@
                     <span class="token-box">!</span>
                 </div>
                 <div class="arrow">↓</div>
-                <p class="note">(Verwendung eines Vokabulars/Wörterbuchs)</p>
+                <p class="note">(Verwendung eines Vokabulars)</p>
                 <code class="code-block output-ids">[ 87 ] [ 1234 ] [ 567 ] [ 9 ]</code>
                 <p class="note">(Beispiel-IDs - Die tatsächlichen Zahlen variieren je nach Modell)</p>
             </div>
 
-            
+
             <div class="flyer-section bottom-section">
                 <h3>Warum ist es wichtig?</h3>
                 <p class="takeaway">Tokenisierung ist der <strong>erste entscheidende Schritt</strong> für LLMs, um Kontext zu verstehen, Muster zu lernen und Text zu erzeugen.</p>
             </div>
 
-        </div> 
-
-       
-        <div class="in-depth-info"> 
-            <h2>Tokenisierung: Wichtige Details</h2>
-        
-            <h3>Wie wird zerlegt? (Arten)</h3>
-            <ul>
-                <li><strong>Wort-basiert:</strong> Trennt bei Leerzeichen/Satzzeichen. Einfach, aber Probleme bei unbekannten Wörtern. (<code>"Hallo", "!"</code>)</li>
-                <li><strong>Zeichen-basiert:</strong> Trennt in einzelne Buchstaben/Zeichen. Erkennt alles, aber erzeugt sehr lange Sequenzen. (<code>"H", "a", "l", "l", "o"</code>)</li>
-                <li><strong>Subword-basiert (häufig):</strong> Kompromiss. Häufige Wörter bleiben ganz, seltene werden zerlegt. Gut für unbekannte Wörter & Vokabulargröße. (<code>"Chat", "bot"</code>)</li>
-            </ul>
-        
-            <h3>Vokabular & IDs</h3>
-            <p>Ein festes "Wörterbuch" (Vokabular) weist jedem möglichen Token eine eindeutige Zahl (ID) zu. Das Modell arbeitet mit diesen IDs. Subwords helfen sehr gut bei Wörtern, die nicht im Vokabular stehen.</p>
-        
-            <h3>Auswirkungen</h3>
-            <p>Die Art der Tokenisierung beeinflusst stark:</p>
-            <ul>
-                <li><strong>Verständnis:</strong> Wie gut das Modell Wörter (auch seltene/neue) versteht.</li>
-                <li><strong>Effizienz & Kosten:</strong> Die Anzahl der Tokens bestimmt Rechenaufwand und oft API-Kosten.</li>
-                <li><strong>Mehrsprachigkeit:</strong> Wichtig für Sprachen mit vielen Wortformen.</li>
-            </ul>
-        
-            <h3>Spezielle Tokens</h3>
-            <p>Modelle nutzen oft spezielle Marker für Struktur und Steuerung, z.B.:</p>
-            <ul>
-                <li><code>[SEP]</code>: Trennt Textabschnitte.</li>
-                <li><code>[PAD]</code>: Füllt kurze Sätze auf eine feste Länge.</li>
-                <li><code>[UNK]</code>: Markiert (selten nötig bei Subwords) unbekannte Wörter.</li>
-            </ul>
         </div>
 
+
+        <div class="in-depth-info">
+            <h2>Tokenisierung</h2>
+        
+            <h3>Beispiele für Arten der Tokenzerlegung:</h3>
+            <!-- START: Replaced UL with DIV structure -->
+            <div class="tokenisierungsarten-list">
+                <div class="tokenisierungsart-item">
+                    <!-- !!! Replace 'icon-word.svg' with your actual icon file !!! -->
+                    <img src="icon-chip.svg" alt="" class="tokenisierungsart-icon">
+                    <span class="tokenisierungsart-text">
+                        <strong>Wort-Tokenisierung:</strong> Einfache Zerlegung: Trennt bei Leerzeichen & Satzzeichen, hat jedoch Schwierigkeiten bei unbekannten Begriffen. <br> (<code>"Hallo", "World", "!"</code>)
+                    </span>
+                </div>
+                <div class="tokenisierungsart-item">
+                    <!-- !!! Replace 'icon-character.svg' with your actual icon file !!! -->
+                    <img src="icon-token1.svg" alt="" class="tokenisierungsart-icon">
+                    <span class="tokenisierungsart-text">
+                        <strong>Zeichen-Tokenisierung:</strong> Trennt in einzelne Buchstaben & Zeichen. Erkennt alles, aber erzeugt sehr lange Tokensequenzen. <br> (<code>"H", "a", "l", "l", "o"</code>)
+                    </span>
+                </div>
+                <div class="tokenisierungsart-item">
+                    <!-- !!! Replace 'icon-subword.svg' with your actual icon file !!! -->
+                    <img src="icon-subword.svg" alt="" class="tokenisierungsart-icon">
+                    <span class="tokenisierungsart-text">
+                        <strong>Subword-Tokenisierung:</strong> Der Kompromiss: Häufige Wörter bleiben ganz, seltene werden zerlegt. Gut für unbekannte Wörter & Vokabulargröße. <br> (<code>"de", "zentral", "isiert"</code>)
+                    </span>
+                </div>
+            </div>
+            <!-- END: Replaced UL with DIV structure -->
+        
+            <h3>Vokabular & IDs</h3>
+            <p>Jedem potenziellen Token wird durch ein festes Vokabular eine spezifische Identifikationsnummer (ID) zugewiesen. Diese IDs werden vom Modell verwendet. Wie oben bereits erwähnt, sind Subwords nützlich für Wörter, die nicht im Vokabular enthalten sind.
+                Die Anzahl der Token variiert je nach Sprache und dem verwendeten Modell sowie dessen Trainingsdaten.</p>
+        
+            <h3>Auswirkungen</h3>
+            <p>Was wird durch die Art der Tokenisierung beeinflusst?</p>
+        
+            <div class="auswirkungen-list">
+                <div class="auswirkung-item">
+                    <img src="icon-brain2.svg" alt="Verständnis" class="auswirkung-icon">
+                    <span class="auswirkung-text"> <strong>Verständnis:</strong> Wie gut das Modell Wörter versteht.</span>
+                </div>
+                <div class="auswirkung-item">
+                    <img src="icon-gear.svg" alt="Effizienz" class="auswirkung-icon">
+                    <span class="auswirkung-text"><strong>Effizienz & Kosten:</strong> Die Anzahl der Tokens bestimmt Rechenaufwand und oft API-Kosten.</span>
+                </div>
+                <div class="auswirkung-item">
+                    <img src="icon-globe.svg" alt="Sprachen" class="auswirkung-icon">
+                    <span class="auswirkung-text"><strong>Mehrsprachigkeit:</strong> Wichtig für Sprachen mit vielen Wortformen.</span>
+                </div>
+            </div>
+        
+        </div>
 </body>
 </html>

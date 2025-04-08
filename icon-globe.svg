@@ -1,0 +1,22 @@
+<svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .globe-path {
+      fill: none;
+      stroke: #00796B; /* Hauptlinienfarbe */
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+
+  <!-- Äußerer Kreis -->
+  <circle class="globe-path" cx="50" cy="50" r="40"/>
+
+  <!-- Horizontale Linie (Äquator) -->
+  <path class="globe-path" d="M 10,50 H 90" />
+
+  <!-- Vertikale Linien (Längengrade) - gekrümmt -->
+  <path class="globe-path" d="M 50,10 Q 75,50 50,90" />
+  <path class="globe-path" d="M 50,10 Q 25,50 50,90" />
+
+</svg>
